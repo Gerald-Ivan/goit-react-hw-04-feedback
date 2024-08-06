@@ -5,11 +5,6 @@ import { Section } from "./Section/Section";
 import { Notification } from "./Notification/Notification";
 
 export const App = () =>{
-  // state = {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0
-  // };
 
   const [feedBack, setFeedBack ] = useState({
     good: 0,
@@ -17,12 +12,12 @@ export const App = () =>{
     bad: 0,
   });
 
-  // for total of  state
+
   const countTotalFeedback = () => {
     const { good, neutral, bad } = feedBack; 
     return good + neutral + bad;
   };
-  // for adding value to state
+
   const handleClick = (type) => {
     // this.setState ((prevState) => ({
       // ...prevState,
@@ -53,7 +48,7 @@ export const App = () =>{
       {/* button  */}
    
       <Section title="Please leave feedback">
-      <FeedbackOption options={options} onLeavefeedback={handleClick}/>
+      <FeedbackOption options={options} onLeaveFeedback={handleClick}/>
       </Section>
       <Section title="Statistics">
        {countTotalFeedback() > 0 ? ( <Statistics good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} positivePercentage={countPositiveFeedbackPercentage()}/>) : (<Notification message="There is no feedback"/>
